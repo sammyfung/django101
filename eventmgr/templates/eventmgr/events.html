@@ -1,0 +1,11 @@
+{% extends 'eventmgr/base.html' %}
+
+{% block title %}Events{% endblock %}
+
+{% block content %}
+        <table>
+        {% for event in events %}
+        <tr><td><a href="{{ event.id }}">{{ event.name }}</a></td></td></tr>
+        {% endfor %}
+        </table>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'eventmgr/base.html' %}
+
+{% block title %}View Participant - {{ participant.event.name }}{% endblock %}
+
+{% block menu %}
+            <li><a href="{{ participant.event.id }}/add">Add</a></li>
+{% endblock %}
+
+{% block content %}
+        <table>
+            <tr><td><a href="{% url 'list_participant' event_id=participant.event.id %}">{{ participant.event.name }}</a></td></tr>
+            <tr><td>{{ participant.id }}: {% if participant.code %}{{ participant.code }}{% endif %}</td></tr>
+            <tr><td>{{ participant }}</td></tr>
+            <tr><td>{% if participant.company %}{{ participant.company }}{% endif %}</td></tr>
+            <tr><td>{% if participant.email %}{{ participant.email }}{% endif %}</td></tr>
+            <tr><td>{% if participant.phone %}{{ participant.phone }}{% endif %}</td></tr>
+        </table>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'eventmgr/base.html' %}
+
+{% block title %}Add Participants - {{ event.name }}{% endblock %}
+
+{% block content %}
+        <form action="{% url 'api_add_participant' event_id=event.id %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-2">Code</div>
+                    <div class="col-md-10"><input type="text" name="code"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">First Name (Required)</div>
+                    <div class="col-md-10"><input type="text" name="first_name"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">Last Name</div>
+                    <div class="col-md-10"><input type="text" name="last_name"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">Company</div>
+                    <div class="col-md-10"><input type="text" name="company"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">Email</div>
+                    <div class="col-md-10"><input type="text" name="email"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">Phone</div>
+                    <div class="col-md-10"><input type="text" name="phone"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2"><button type="submit" class="glyphicon glyphicon-pencil btn btn-lg btn-primary"> Add</button></div>
+                </div>
+            </div>
+        </form>
+{% endblock %}
